@@ -11,7 +11,7 @@ app = FastAPI(title="Demo API (FastAPI + Postgres)")
 origins = [os.getenv("CORS_ORIGINS", "http://localhost")]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins.split(","),
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

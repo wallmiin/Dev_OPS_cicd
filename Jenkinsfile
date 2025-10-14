@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_USER    = "thanhhub"   // TODO: sửa
+    DOCKER_USER    = "your_dockerhub_username"   // TODO: sửa
     BACKEND_IMAGE  = "backend"
     FRONTEND_IMAGE = "frontend"
     DEPLOY_DIR     = "/opt/deploy/app"
@@ -20,7 +20,7 @@ pipeline {
         checkout([$class: 'GitSCM',
           branches: [[name: '*/main']],
           userRemoteConfigs: [[
-            url: 'https://github.com/thanhhuynh1609/jenkins1.git', // TODO: sửa
+            url: 'https://github.com/<your_username>/<your_repo>.git', // TODO: sửa
             credentialsId: 'github-pat'
           ]]
         ])
