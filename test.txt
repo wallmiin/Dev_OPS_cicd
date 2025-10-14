@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_DB: icloud_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: matkhau
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  backend:
+    image: docker.io/thanhhub/backend:latest
+    container_name: backend
+    restart: always
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: matkhau
+      DB_DATABASE: icloud_db
+      CORS_ORIGINS: http://localhost
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  frontend:
+    image: docker.io/thanhhub/frontend:latest
+    container_name: frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
