@@ -49,4 +49,4 @@ networks:
   app-network:
     driver: bridge
 
-slallskdj sd
+slallskdj sd ádasdasd
