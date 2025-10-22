@@ -66,7 +66,7 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 720, margin: "40px auto", fontFamily: "system-ui, sans-serif" }}>
-      <h1>React + FastAPI CRUD</h1>
+      <h1>React + FastAPI CRUDdddddd</h1>
       <p>Backend health: <b>{health}</b></p>
 
       <form onSubmit={createItem} style={{ display: "flex", gap: 8, marginBottom: 16 }}>
