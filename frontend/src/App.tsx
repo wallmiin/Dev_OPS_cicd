@@ -89,7 +89,7 @@ export default function App() {
                   onChange={(e) => setEditingTitle(e.target.value)}
                   style={{ flex: 1, padding: 6 }}
                 />
-                <button onClick={() => saveEdit(i.id)}>Save</button>
+                <button onClick={() => saveEdit(i.id)}>Savee</button>
                 <button onClick={() => { setEditingId(null); setEditingTitle(""); }}>Cancel</button>
               </>
             ) : (
